@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+</body>
+</html>
+
+<script>
+    let myPoints=0;
+    let comPoints=0;
+function computerPlay() {
+   let x=Math.floor(Math.random() *3);
+   switch(x){
+       case 0:
+       return "Rock";
+       break;
+       case 1:
+       return "Paper";
+       break;
+       case 2:
+       return "Scissors";
+   }
+}
+function playRound(playerselection, computerselection){
+if (playerselection.toLowerCase()===computerselection.toLowerCase()){
+    return "It is a tie";
+}
+else if (playerselection.toLowerCase()==="rock" && computerselection.toLowerCase()==="paper"){
+    return "you lose, paper defeats rock";
+}
+else if (playerselection.toLowerCase()==="paper" && computerselection.toLowerCase()==="scissors") {
+    return "you lose, scissors defeat paper";
+}
+else if (playerselection.toLowerCase()==="scissors" && computerselection.toLowerCase()==="rock"){
+    return "you lose, rock defeats scissors"
+}
+else if (playerselection.toLowerCase()==="rock" && computerselection.toLowerCase()==="scissors"){
+    return "you win, rock defeats scissors";
+}
+else if (playerselection.toLowerCase()==="paper" && computerselection.toLowerCase()==="rock") {
+    return "you win, paper defeats rock";
+}
+else if (playerselection.toLowerCase()==="scissors" && computerselection.toLowerCase()==="paper"){
+    return "you win, scissors defeat paper"
+}
+}
+function game() {
+    let i=0;
+    for (;i<5;i++) {
+        let x=prompt("choose your weapon: ");
+        y=playRound(x,computerPlay());
+        console.log(y);
+         if (y.slice(0,7)==="you win") {
+             myPoints++;
+         }
+         else if (y.slice(0,8)==="you lose") {
+             comPoints++;
+         }
+        }
+    if (myPoints>comPoints) {
+        console.log(`You are the winner; your score= ${myPoints}, computer score= ${comPoints}`);
+    }
+    else if (myPoints<comPoints) {
+        console.log(`The computer is the winner; your score=${myPoints}, computer score=${comPoints}`);
+    }
+    else {
+        console.log("There's a tie")
+    }
+}
+
+
+</script>
